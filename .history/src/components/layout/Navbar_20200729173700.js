@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 function Navbar(props) {
   return (
-    <nav className='navbar bg-danger '>
+    <nav className='navbar bg-light '>
       <h1>
         <i className='fa fa-github'></i>
         {props.title}

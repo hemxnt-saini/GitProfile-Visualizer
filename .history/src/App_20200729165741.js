@@ -19,7 +19,7 @@ class App extends Component {
   searchUsers = async (text) => {
     this.setState({ loading: true });
     const res = await axios.get(
-      `https://api.github.com/search/users?q=${text}&cliend_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+      `https://api.github.com/search/users?q=${text}`
     );
     this.setState({
       users: res.data.items,
@@ -30,7 +30,6 @@ class App extends Component {
   clearUsers = () => {
     this.setState({
       users: [],
-      loading: false,
     });
   };
 
@@ -41,16 +40,13 @@ class App extends Component {
   };
 
   getUser = async (username) => {
-    this.setState({ loading: true });
-    const res = await axios.get(
-      `https://api.github.com/users/${username}?cliend_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-    );
-    this.setState({ user: res.data, loading: false });
+    const res = await axios.get(`https://api.github.com/users/${username}`);
+    this.setState({ user: res.data });
   };
 
   getUserRepos = async (username) => {
     const res = await axios.get(
-      `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&cliend_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+      `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc`
     );
     this.setState({ repos: res.data });
   };
@@ -71,7 +67,6 @@ class App extends Component {
                     <Search
                       searchUsers={this.searchUsers}
                       clearUsers={this.clearUsers}
-                      showClear={this.state.users.length > 0 ? true : false}
                       setAlert={this.setAlert}
                     />
                     <Users
@@ -92,7 +87,6 @@ class App extends Component {
                     getUserRepos={this.getUserRepos}
                     repos={this.state.repos}
                     user={this.state.user}
-                    loading={this.state.loading}
                   />
                 )}
               />
