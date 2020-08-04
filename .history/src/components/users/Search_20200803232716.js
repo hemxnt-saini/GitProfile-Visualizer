@@ -34,7 +34,7 @@ class Search extends Component {
             placeholder='Search Users'
             value={this.state.text}
             onChange={this.onChange}
-            autoComplete='off'
+            autoComplete='none'
           />
           <input
             type='submit'
