@@ -5,13 +5,6 @@ import React, { useState } from "react";
 //    text: "",
 //  };
 
-//Removal of this keyword
-//addition of const while making function
-//use of arrow to avoid bind()
-//removal of this.setState() ==> Just call setText(pass the changed value)
-//removal of this.state.text ==> text
-//that this.props convertinto just props in function and that too we destructure on top
-
 const Search = ({ searchUsers, clearUsers, showClear, setAlert }) => {
   const [text, setText] = useState("");
 

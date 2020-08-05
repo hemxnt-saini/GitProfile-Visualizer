@@ -5,14 +5,7 @@ import React, { useState } from "react";
 //    text: "",
 //  };
 
-//Removal of this keyword
-//addition of const while making function
-//use of arrow to avoid bind()
-//removal of this.setState() ==> Just call setText(pass the changed value)
-//removal of this.state.text ==> text
-//that this.props convertinto just props in function and that too we destructure on top
-
-const Search = ({ searchUsers, clearUsers, showClear, setAlert }) => {
+const Search = ({ searchUsers, clearUsers, showClear }) => {
   const [text, setText] = useState("");
 
   const onChange = (e) => {
@@ -22,23 +15,25 @@ const Search = ({ searchUsers, clearUsers, showClear, setAlert }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (text === "") {
-      setAlert("Please Enter Something..!!", "light");
+    if (this.state.text === "") {
+      this.props.setAlert("Please Enter Something..!!", "light");
     } else {
-      searchUsers(text);
-      setText("");
+      this.props.searchUsers(this.state.text);
+      this.setState({
+        text: "",
+      });
     }
   };
 
   return (
     <div>
-      <form onSubmit={onSubmit} className='form'>
+      <form onSubmit={this.onSubmit} className='form'>
         <input
           type='text'
           name='text'
           placeholder='Search Users'
           value={text}
-          onChange={onChange}
+          onChange={this.onChange}
           autoComplete='off'
         />
         <input
@@ -48,8 +43,11 @@ const Search = ({ searchUsers, clearUsers, showClear, setAlert }) => {
         />
       </form>
 
-      {showClear && (
-        <button className='btn btn-light btn-block' onClick={clearUsers}>
+      {this.props.showClear && (
+        <button
+          className='btn btn-light btn-block'
+          onClick={this.props.clearUsers}
+        >
           Clear
         </button>
       )}
