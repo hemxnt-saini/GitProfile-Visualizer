@@ -376,12 +376,7 @@ table th {
   margin-right: 0.6rem;
 }
 .bg-black {
-  background: #000;
-  color: #fff;
-}
-.nav-head {
-  font-size: 1.7rem;
-  /* margin-left: 100px; */
+  background: #24292e !important;
 }
 
 /* Mobile Styles */

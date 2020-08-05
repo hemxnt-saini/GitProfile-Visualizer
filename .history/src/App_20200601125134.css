@@ -375,14 +375,6 @@ table th {
 .navbar .welcome span {
   margin-right: 0.6rem;
 }
-.bg-black {
-  background: #000;
-  color: #fff;
-}
-.nav-head {
-  font-size: 1.7rem;
-  /* margin-left: 100px; */
-}
 
 /* Mobile Styles */
 @media (max-width: 700px) {

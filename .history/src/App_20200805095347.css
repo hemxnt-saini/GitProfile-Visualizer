@@ -380,8 +380,8 @@ table th {
   color: #fff;
 }
 .nav-head {
-  font-size: 1.7rem;
-  /* margin-left: 100px; */
+  font-size: 20px;
+  margin-left: 100px;
 }
 
 /* Mobile Styles */

@@ -5,6 +5,13 @@ class Search extends Component {
     text: "",
   };
 
+  //Removal of this keyword
+  //addition of const while making function
+  //use of arrow to avoid bind()
+  //removal of this.setState() ==> Just call setText(pass the changed value)
+  //removal of this.state.text ==> text
+  //that this.props convertinto just props in function and that too we destructure on top
+
   onChange = (e) => {
     this.setState({ text: e.target.value });
   };
@@ -13,10 +20,10 @@ class Search extends Component {
     e.preventDefault();
 
     if (this.state.text === "") {
-      this.props.setAlert("Please Enter Something..!!", "light");
+      this.setAlert("Please Enter Something..!!", "light");
     } else {
-      this.props.searchUsers(this.state.text);
-      this.setState({ text: "" });
+      this.searchUsers(this.state.text);
+      this.setText("");
     }
   };
 
@@ -39,11 +46,8 @@ class Search extends Component {
           />
         </form>
 
-        {this.props.showClear && (
-          <button
-            className='btn btn-light btn-block'
-            onClick={this.props.clearUsers}
-          >
+        {this.showClear && (
+          <button className='btn btn-light btn-block' onClick={this.clearUsers}>
             Clear
           </button>
         )}

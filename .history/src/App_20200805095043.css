@@ -379,10 +379,6 @@ table th {
   background: #000;
   color: #fff;
 }
-.nav-head {
-  font-size: 1.7rem;
-  /* margin-left: 100px; */
-}
 
 /* Mobile Styles */
 @media (max-width: 700px) {
