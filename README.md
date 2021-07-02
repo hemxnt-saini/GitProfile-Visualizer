@@ -1,3 +1,3 @@
 ## About Projects
 
-A React Project acting as an Github Clone consisiting of Multilevel Components uses GitHub API Documentation for the search query and implement the results on the different Components with the state-up and state-down propectives.
+The application displays the nicer look of GitHub profiles built with ReactJS, ChartJS, and the GitHub API. React Application has the functionality of showing users stared repository, top languages using different types of charts representation and consisting of top repository based upon forks, stars filters.
